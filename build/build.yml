@@ -1,5 +1,5 @@
 ---
-- name: Buid java project
+- name: Build java project
   hosts: all
   become: yes
 
@@ -10,7 +10,7 @@
         state: present
         update_cache: yes
 
-    - name: Ensure Docker is presented
+    - name: Ensure docker is presented
       pip:
         name: docker
         state: present
@@ -43,7 +43,7 @@
       docker_image:
         build:
           path: /tmp/boxfuse/target
-        name: galend/devops_trainings:bx-{{ ansible_date_time.date }}-{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}
+        name: galend/devops_trainings:bx-{{ ansible_date_time.date }}
         push: yes
         source: build
         state: present
