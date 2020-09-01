@@ -14,6 +14,6 @@ resource "aws_instance" "build" {
   }
 
   provisioner "local-exec" {
-    command = "sleep 120; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ubuntu --private-key ~/.ssh/ansible.pem -i '${aws_instance.build.public_ip},' build.yml"
+    command = "sleep 120; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ubuntu --private-key ~/.ssh/ansible.pem -i '${aws_instance.build.public_ip},' ./build/build.yml"
   }
 }
